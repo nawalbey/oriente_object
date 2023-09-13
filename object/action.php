@@ -15,3 +15,5 @@ $utilisateur = new Utilisateur($_POST["nom"], $_POST["prenom"], $_POST["login"],
 //appeler la methode inscription pour enregistrer les donnees dans bd
 
 $utilisateur->inscription();
+
+// $utilisateur::connexion();

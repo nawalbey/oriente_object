@@ -16,15 +16,6 @@
 
     <form action="./action2.php" method="post">
         <div class="mb-3">
-            <label for="nom" class="form-label">nom</label>
-            <input type="text" class="form-control" id="nom" aria-describedby="nom" name="nom">
-            <div id="nom" class="form-text"></div>
-        </div>
-        <div class="mb-3">
-            <label for=" prenom" class="form-label"> prenom</label>
-            <input type="text" class="form-control" id=" prenom" name="prenom">
-        </div>
-        <div class="mb-3">
             <label for="login" class="form-label">login</label>
             <input type="text" class="form-control" name="login">
         </div>
@@ -33,7 +24,7 @@
             <input type="text" class="form-control" id="password" name="password">
         </div>
 
-        <button name="submit" type="submit" value="submit" class="btn btn-primary">envoyer</button>
+        <button name="connexion" type="submit" value="submit" class="btn btn-primary">envoyer</button>
     </form>
 
 </body>

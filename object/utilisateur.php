@@ -42,9 +42,31 @@ class Utilisateur
         }
 
     }
-    public function connecter()
+    public static function connecter($email, $password)
     {
-
+        $db = new DbConnect();
+        $conn = $db->dbConnexion();
+        // preparer la requete 
+        $request = $conn->prepare("SELECT * FROM utilisateurs WHERE email = ?");
+        // executer la requete
+        try {
+            $request->execute(array($email));
+            $user = $request->fetch();
+            if (empty($user)) {
+                echo "adresse email introuvable veuillez creer un compte avant de vous connecter";
+            } else {
+                if (password_verify($password, $user['mdp'])) {
+                    // creer la variable de session
+                    $_SESSION['prenom'] = $user['prenom'];
+                    // rediriger vers accueil.php
+                    header("Location: accueil.php");
+                } else {
+                    echo "mot de passe incorrect";
+                }
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
     public function deconnecter()
     {
